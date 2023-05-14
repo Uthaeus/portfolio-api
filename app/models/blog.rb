@@ -5,4 +5,5 @@ class Blog < ApplicationRecord
     mount_uploader :image, BlogUploader
 
     belongs_to :user
+    belongs_to :category
 end
