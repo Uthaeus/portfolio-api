@@ -1,16 +1,17 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show update destroy ]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   # GET /blogs
   def index
     @blogs = Blog.all
 
-    render json: @blogs
+    render json: @blogs, include: :user
   end
 
   # GET /blogs/1
   def show
-    render json: @blog
+    render json: @blog, include: :user
   end
 
   # POST /blogs
@@ -46,6 +47,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :image)
+      params.require(:blog).permit(:title, :body, :image, :user_id)
     end
 end
