@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  
   before_action :authenticate_user!, only: [:user_current]
   respond_to :json
   
@@ -6,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def about
+    
   end
 
   def contact

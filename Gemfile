@@ -53,3 +53,5 @@ gem "mini_magick", "~> 4.12"
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'devise-jwt', '~> 0.11.0'
+
+gem 'gon', '~> 6.4'
