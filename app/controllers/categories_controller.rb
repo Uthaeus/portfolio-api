@@ -1,16 +1,18 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show update destroy ]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  respond_to :json
 
   # GET /categories
   def index
     @categories = Category.all
 
-    render json: @categories
+    render json: @categories, include: :blogs
   end
 
   # GET /categories/1
   def show
-    render json: @category
+    render json: @category, include: :blogs
   end
 
   # POST /categories

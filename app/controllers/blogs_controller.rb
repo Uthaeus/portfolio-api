@@ -5,8 +5,9 @@ class BlogsController < ApplicationController
   # GET /blogs
   def index
     @blogs = Blog.all
+    @categories = Category.all
 
-    render json: @blogs, include: :user
+    render json: {blogs: @blogs.as_json(include: :user), categories: @categories}
   end
 
   # GET /blogs/1
