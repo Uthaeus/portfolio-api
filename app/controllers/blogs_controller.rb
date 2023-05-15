@@ -12,7 +12,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1
   def show
-    render json: @blog, include: [:user, :comments]
+    
+    render json: @blog, include: [:user, :category, :comments => {:include => :user}]
   end
 
   # POST /blogs
