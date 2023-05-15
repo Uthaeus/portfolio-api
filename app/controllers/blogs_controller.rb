@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order("created_at DESC")
     @categories = Category.all
 
     render json: {blogs: @blogs.as_json(include: :user), categories: @categories}
