@@ -10,5 +10,6 @@ class User < ApplicationRecord
     super 
   end
 
-  has_many :blogs 
+  has_many :blogs
+  has_many :comments, dependent: :destroy
 end
