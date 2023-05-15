@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[ show update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /portfolios
   def index
