@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @skills = Skill.all
+
+    render json: @skills
   end
 
   def user_current
